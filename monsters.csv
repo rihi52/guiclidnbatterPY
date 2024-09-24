@@ -1,4 +1,4 @@
-ID,NAME,TYPE,CR,Size,ALIGNMENT,AC,HP_AVG
+id,name,type,cr,size,alignment,ac,hp
 1,Aboleth,Aberration,10,Large,lawful evil,17,135
 2,Acolyte,Humanoid (any race),0.25,Medium,any alignment,10,9
 3,Adult Black Dragon,Dragon,14,Huge,chaotic evil,19,195
