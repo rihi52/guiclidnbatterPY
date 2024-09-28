@@ -102,6 +102,9 @@ class MainWindow(QMainWindow):
             # Get the text from the widget's labels to compare against the search text
             name_label = widget.layout().itemAt(0).widget()  # Access the first QLabel (name)
             item.setHidden(text.lower() not in name_label.text().lower())
+            
+            cr_label = widget.layout().itemAt(1).widget()  # Access the first QLabel (name)
+            item.setHidden(text.lower() not in cr_label.text().lower())
         
 
 app = QApplication(sys.argv)
