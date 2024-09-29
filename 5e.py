@@ -42,8 +42,18 @@ class MainWindow(QMainWindow):
         self.search = QLineEdit()
         self.search.setFixedWidth(int((width/2)-10))
         
-        layout.addWidget(self.search, 0, 0)
-        layout.addWidget(self.creatures, 1, 0)
+        self.list_header_name = QLabel()
+        self.list_header_name.setText("Name")
+        self.list_header_name.setFixedWidth(int((width/4)-20))
+        
+        self.list_header_cr = QLabel()
+        self.list_header_cr.setText("CR")
+        self.list_header_cr.setFixedWidth(int((width/4)-20))
+        
+        layout.addWidget(self.search, 0, 0, 1, 2)        
+        layout.addWidget(self.list_header_name, 1, 0)
+        layout.addWidget(self.list_header_cr, 1, 1)
+        layout.addWidget(self.creatures, 2, 0, 1, 2)
 
         widget = QWidget()
         widget.setLayout(layout)
