@@ -63,31 +63,6 @@ class MainWindow(QMainWindow):
             for rows in result:
                 items.append(rows[0])
                 cr.append(rows[1])
-                
-            widget = QWidget()
-            grid_layout = QGridLayout()
-            
-            grid_layout = QGridLayout()
-            
-            name_label = QLabel("Name")
-            grid_layout.addWidget(name_label, 0, 0)
-            
-            cr_label = QLabel("CR")
-            grid_layout.addWidget(cr_label, 0, 1)
-            
-            widget.setLayout(grid_layout)
-            
-            # Set a minimum size for the widget to ensure it renders
-            widget.setMinimumSize(100, 30)
-
-            # Create a QListWidgetItem (empty item for custom widget)
-            list_item = QListWidgetItem()
-
-            # Add the empty QListWidgetItem to the QListWidget
-            self.creatures.addItem(list_item)
-
-            # Set the custom widget for the QListWidgetItem
-            self.creatures.setItemWidget(list_item, widget)
         
         # Populate the QListWidget with custom grid-aligned items
         for name, challenge_rating in zip(items, cr):
@@ -126,10 +101,15 @@ class MainWindow(QMainWindow):
 
             # Get the text from the widget's labels to compare against the search text
             name_label = widget.layout().itemAt(0).widget()  # Access the first QLabel (name)
-            item.setHidden(text.lower() not in name_label.text().lower())
             
             cr_label = widget.layout().itemAt(1).widget()  # Access the second QLabel (CR)
-            item.setHidden(text.lower() not in cr_label.text().lower())
+            
+            # Get the text from both labels
+            name_text = name_label.text().lower()
+            cr_text = cr_label.text().lower()
+
+            # Set hidden only if the search text is NOT in either the name or the CR
+            item.setHidden(text.lower() not in name_text and text.lower() not in cr_text)
         
 
 app = QApplication(sys.argv)
