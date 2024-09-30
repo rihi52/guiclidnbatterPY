@@ -108,13 +108,11 @@ class MainWindow(QMainWindow):
             cr_label = QLabel(f"{challenge_rating}")
             grid_layout.addWidget(cr_label, 0, 3)
             
-            
-
             # Set the custom widget's layout
             widget.setLayout(grid_layout)
             
             # Set a minimum size for the widget to ensure it renders
-            widget.setMinimumSize(100, 30)
+            widget.setMinimumSize(100, 35)
 
             # Create a QListWidgetItem (empty item for custom widget)
             list_item = QListWidgetItem()
@@ -134,11 +132,11 @@ class MainWindow(QMainWindow):
             # Get the text from the widget's labels to compare against the search text
             name_label = widget.layout().itemAt(0).widget()  # Access the first QLabel (name)
             
-            size_label = widget.layout().itemAt(1).widget()  # Access the second QLabel (CR)
+            type_label = widget.layout().itemAt(1).widget()  # Access the second QLabel (Type)
             
-            type_label = widget.layout().itemAt(2).widget()  # Access the second QLabel (CR)
+            size_label = widget.layout().itemAt(2).widget()  # Access the third QLabel (Size)
             
-            cr_label = widget.layout().itemAt(3).widget()  # Access the second QLabel (CR)
+            cr_label = widget.layout().itemAt(3).widget()  # Access the fourth QLabel (CR)
             
             # Get the text from both labels
             name_text = name_label.text().lower()
